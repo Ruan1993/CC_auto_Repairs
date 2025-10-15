@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CC Auto Repairs - Professional Car Service & Repairs</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#b30000", // darker red
+              secondary: "#000000", // black
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(80, 80, 80, 0.7),
+            rgba(80, 80, 80, 0.7)
+          ),
+          url("https://huggingface.co/spaces/UnTam3d/cc-auto-repairs-speedy-wrench-wizards/resolve/main/images/CC%20Auto%20hero%20image%20red.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2),
+          0 10px 10px -5px rgba(0, 0, 0, 0.1);
+      }
+      nav,
+      footer {
+        background-color: #000;
+      }
+      .testimonials {
+        background-color: #000;
+      }
+      .contact-section {
+        background-color: #f5f5f5;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav
+      class="bg-black shadow-lg sticky top-0 z-50 transition-all duration-300 hover:shadow-xl"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="flex items-center space-x-3 group">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#b30000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="group-hover:scale-110 transition-transform duration-300"
+          >
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+            ></path>
+          </svg>
+          <span
+            class="text-2xl font-extrabold text-white group-hover:text-primary transition-all duration-300"
+            >CC Auto Repairs</span
+          >
+        </a>
+
+        <div class="hidden md:flex space-x-10">
+          <a
+            href="#"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+            class="text-lg font-semibold text-white hover:text-primary transition-all duration-300 transform hover:scale-105 px-2 py-1 relative group"
+          >
+            <span>Home</span>
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#services"
+            class="text-lg font-semibold text-gray-300 hover:text-primary transition-all duration-300 transform hover:scale-105 px-2 py-1 relative group"
+          >
+            <span>Services</span>
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#about"
+            class="text-lg font-semibold text-gray-300 hover:text-primary transition-all duration-300 transform hover:scale-105 px-2 py-1 relative group"
+          >
+            <span>About</span>
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#contact"
+            class="text-lg font-semibold text-gray-300 hover:text-primary transition-all duration-300 transform hover:scale-105 px-2 py-1 relative group"
+          >
+            <span>Contact</span>
+            <span
+              class="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"
+            ></span>
+          </a>
+        </div>
+        <div class="md:hidden relative">
+          <button id="mobile-menu-button" class="focus:outline-none group">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="group-hover:stroke-primary transition-colors duration-300"
+            >
+              <line
+                x1="3"
+                y1="12"
+                x2="21"
+                y2="12"
+                class="hovered-element"
+              ></line>
+              <line x1="3" y1="6" x2="21" y2="6" class="hovered-element"></line>
+              <line
+                x1="3"
+                y1="18"
+                x2="21"
+                y2="18"
+                class="hovered-element"
+              ></line>
+            </svg>
+          </button>
+          <div
+            id="mobile-menu"
+            class="hidden fixed inset-0 bg-black bg-opacity-90 z-50 pt-20"
+          >
+            <div
+              class="container mx-auto px-6 border-l-2 border-r-2 border-black"
+            >
+              <div class="flex flex-col space-y-6 text-center">
+                <a
+                  href="#"
+                  class="text-2xl font-bold text-white hover:text-primary transition py-4"
+                  onclick="event.preventDefault(); document.querySelector('body').scrollIntoView({behavior: 'smooth'}); mobileMenu.classList.add('hidden');"
+                  >Home</a
+                >
+                <a
+                  href="#services"
+                  class="text-2xl font-bold text-white hover:text-primary transition py-4"
+                  onclick="mobileMenu.classList.add('hidden')"
+                  >Services</a
+                >
+                <a
+                  href="#about"
+                  class="text-2xl font-bold text-white hover:text-primary transition py-4"
+                  onclick="mobileMenu.classList.add('hidden')"
+                  >About</a
+                >
+                <a
+                  href="#contact"
+                  class="text-2xl font-bold text-white hover:text-primary transition py-4"
+                  onclick="mobileMenu.classList.add('hidden')"
+                  >Contact</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section
+      class="hero-bg h-screen flex items-center justify-center text-white"
+    >
+      <div class="text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Your Car Deserves The Best Care
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+          Cutting-edge auto repair services leveraging the latest technology and
+          techniques to keep your vehicle in peak condition.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <a
+            href="#contact"
+            class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+            >Book Appointment</a
+          >
+          <a
+            href="#services"
+            class="bg-secondary hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300"
+            >Our Services</a
+          >
+        </div>
+      </div>
+    </section>
+    <!-- Services Section -->
+    <section
+      id="services"
+      class="py-20 bg-black text-white outline outline-2 outline-[#800000]"
+    >
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Our Expert Services
+          </h2>
+          <p class="text-gray-300 max-w-2xl mx-auto">
+            We offer comprehensive auto repair services to keep your vehicle in
+            top condition.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Service Card 1 -->
+          <div
+            class="service-card bg-gray-900 text-white p-8 rounded-xl shadow-md transition duration-300 border-2 border-primary focus:border-white outline-none hover:shadow-lg"
+            tabindex="0"
+          >
+            <div
+              class="bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 border border-primary/20"
+            >
+              <i data-feather="tool" class="text-primary w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Major Service</h3>
+            <p class="text-white">
+              Comprehensive vehicle service including all fluids, filters, belts
+              and full system inspection.
+            </p>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div
+            class="service-card bg-gray-900 text-white p-8 rounded-xl shadow-md transition duration-300 border-2 border-primary focus:border-white outline-none"
+            tabindex="0"
+          >
+            <div
+              class="bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 border border-primary/20"
+            >
+              <i data-feather="package" class="text-primary w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Minor Service</h3>
+            <p class="text-white">
+              Basic maintenance package with oil change, fluid top-ups and
+              safety inspection.
+            </p>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div
+            class="service-card bg-gray-900 text-white p-8 rounded-xl shadow-md transition duration-300 border-2 border-primary focus:border-white outline-none"
+            tabindex="0"
+          >
+            <div
+              class="bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 border border-primary/20"
+            >
+              <i data-feather="cpu" class="text-primary w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Suspensions</h3>
+            <p class="text-white">
+              Complete suspension system diagnosis, repair and alignment for
+              optimal handling.
+            </p>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div
+            class="service-card bg-gray-900 text-white p-8 rounded-xl shadow-md transition duration-300 border-2 border-primary focus:border-white outline-none"
+            tabindex="0"
+          >
+            <div
+              class="bg-primary/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6 border border-primary/20"
+            >
+              <i data-feather="zap" class="text-primary w-8 h-8"></i>
+            </div>
+            <h3 class="text-xl font-bold text-primary mb-3">Brake & Clutch</h3>
+            <p class="text-white">
+              Expert brake and clutch system service including repairs and full
+              replacements.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section
+      id="about"
+      class="py-20 bg-gray-200 border-b border-t border-black"
+    >
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+              About CC Auto Repairs
+            </h2>
+            <p class="text-gray-600 mb-6">
+              Founded in 2025, CC Auto Repairs brings a fresh approach to auto
+              care with a focus on honest, personalized service. Our
+              owner-technician personally handles every repair with meticulous
+              attention to detail.
+            </p>
+            <p class="text-gray-600 mb-8">
+              We combine hands-on experience with modern diagnostic technology
+              to deliver reliable repairs you can trust. What sets us apart? Our
+              commitment to transparent communication, fair pricing, and
+              standing behind our work.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center">
+                <i data-feather="check-circle" class="text-primary mr-2"></i>
+                <span class="text-gray-700">Owner-Operated</span>
+              </div>
+              <div class="flex items-center">
+                <i data-feather="check-circle" class="text-primary mr-2"></i>
+                <span class="text-gray-700">Personal Attention</span>
+              </div>
+              <div class="flex items-center">
+                <i data-feather="check-circle" class="text-primary mr-2"></i>
+                <span class="text-gray-700">Quality Workmanship</span>
+              </div>
+              <div class="flex items-center">
+                <i data-feather="check-circle" class="text-primary mr-2"></i>
+                <span class="text-gray-700">Honest Assessments</span>
+              </div>
+            </div>
+          </div>
+          <div class="lg:w-1/2">
+            <img
+              src="https://huggingface.co/spaces/UnTam3d/cc-auto-repairs-speedy-wrench-wizards/resolve/main/images/CC%20Auto%20Repairs%20&%20Service.jpeg"
+              alt="CC Auto Repairs Shop"
+              class="rounded-lg shadow-xl w-full border-2 border-black"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section
+      class="py-20 bg-black text-white outline outline-2 outline-[#800000]"
+    >
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            What Our Customers Say
+          </h2>
+          <p class="max-w-2xl mx-auto text-gray-300">
+            Don't just take our word for it - hear from our satisfied customers.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="bg-gray-900 bg-opacity-70 backdrop-blur-sm p-8 rounded-xl border-2 border-primary hover:border-primary/80 transition-all duration-300 text-white"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-4">
+                <i data-feather="user" class="w-10 h-10 text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold">Michael Johnson</h4>
+                <div class="flex text-yellow-400 mt-1">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              "CC Auto Repairs saved me hundreds by identifying the real issue
+              when another shop misdiagnosed my car. Honest and professional
+              service!"
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="bg-gray-900 bg-opacity-70 backdrop-blur-sm p-8 rounded-xl border-2 border-primary hover:border-primary/80 transition-all duration-300 text-white"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-4">
+                <i data-feather="user" class="w-10 h-10 text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold">Sarah Williams</h4>
+                <div class="flex text-yellow-400 mt-1">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              "I've been taking my cars here for 10 years. They always do
+              quality work and stand behind it. The staff is friendly and
+              knowledgeable."
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="bg-gray-900 bg-opacity-70 backdrop-blur-sm p-8 rounded-xl border-2 border-primary hover:border-primary/80 transition-all duration-300 text-white"
+          >
+            <div class="flex items-center mb-4">
+              <div class="bg-primary bg-opacity-20 p-2 rounded-full mr-4">
+                <i data-feather="user" class="w-10 h-10 text-primary"></i>
+              </div>
+              <div>
+                <h4 class="font-bold">David Rodriguez</h4>
+                <div class="flex text-yellow-400 mt-1">
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                  <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-300">
+              "Quick service when I needed my brakes done urgently. They
+              explained everything clearly and didn't try to upsell unnecessary
+              services."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-20 contact-section outline outline-2 outline-[#800000]"
+    >
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Contact Us
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Schedule an appointment or ask us any questions about our services.
+          </p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-8">
+          <div class="lg:w-1/2 mb-10 lg:mb-0">
+            <form
+              class="space-y-6 backdrop-blur-sm bg-gray-800 p-8 rounded-2xl shadow-xl border-2 border-primary hovered-element"
+            >
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label
+                    for="name"
+                    class="block text-white font-medium mb-2 hovered-element"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-2 bg-gray-600 text-white border border-gray-500 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent hovered-element"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-white font-medium mb-2 hovered-element"
+                    >Email Address</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-2 bg-gray-600 text-white border border-gray-500 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent hovered-element"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="phone"
+                  class="block text-white font-medium mb-2 hovered-element"
+                  >Phone Number</label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  class="w-full px-4 py-2 bg-gray-600 text-white border border-gray-500 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent hovered-element"
+                  placeholder="Enter phone number"
+                />
+              </div>
+              <div>
+                <label
+                  for="service"
+                  class="block text-white font-medium mb-2 hovered-element"
+                  >Service Needed</label
+                >
+                <select
+                  id="service"
+                  class="w-full px-4 py-2 bg-gray-600 text-white border border-gray-500 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent hovered-element"
+                >
+                  <option value="">Select a service</option>
+                  <option value="major">Major Service</option>
+                  <option value="minor">Minor Service</option>
+                  <option value="suspension">Suspension Repair</option>
+                  <option value="brake-clutch">Brake & Clutch Service</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label
+                  for="message"
+                  class="block text-white font-medium mb-2 hovered-element"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="w-full px-4 py-2 bg-gray-600 text-white border border-gray-500 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent hovered-element"
+                  placeholder="Tell us about your vehicle and service needs..."
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="bg-primary hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 w-full hovered-element"
+              >
+                Send Message <span class="ml-2">→</span>
+              </button>
+            </form>
+          </div>
+          <div class="lg:w-1/2">
+            <div
+              class="backdrop-blur-sm bg-gray-800 p-8 rounded-2xl shadow-xl border-2 border-primary h-full"
+            >
+              <h3 class="text-xl font-bold text-white mb-6">Visit Our Shop</h3>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <i data-feather="map-pin" class="text-primary mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-medium text-white">Address</h4>
+                    <p class="text-gray-300">Dana Bay, Mossel Bay</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i data-feather="phone" class="text-primary mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-medium text-white">Phone</h4>
+                    <p class="text-gray-300">074 218 7468</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i data-feather="mail" class="text-primary mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-medium text-white">Email</h4>
+                    <p class="text-gray-300">cornebotha6991@gmail.com</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <i data-feather="clock" class="text-primary mr-4 mt-1"></i>
+                  <div>
+                    <h4 class="font-medium text-white">Hours</h4>
+                    <p class="text-gray-300">
+                      Monday - Friday: 7:30 AM - 6:00 PM
+                    </p>
+                    <p class="text-gray-300">Saturday: 8:00 AM - 4:00 PM</p>
+                    <p class="text-gray-300">Sunday: Closed</p>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8">
+                <h4 class="font-medium text-white mb-4">Follow Us</h4>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="bg-blue-600 hover:bg-blue-700 p-3 rounded-full transition shadow-sm group relative"
+                    title="Follow us on Facebook"
+                  >
+                    <i data-feather="facebook" class="text-white"></i>
+                    <span
+                      class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      >Facebook</span
+                    >
+                  </a>
+                  <a
+                    href="tel:0742187468"
+                    class="bg-green-600 hover:bg-green-700 p-3 rounded-full transition shadow-sm group relative"
+                    title="Phone us"
+                    onclick="window.location.href='tel:0742187468'"
+                  >
+                    <i data-feather="phone" class="text-white"></i>
+                    <span
+                      class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      >Call Us</span
+                    >
+                  </a>
+                  <a
+                    href="mailto:cornebotha6991@gmail.com"
+                    class="bg-red-600 hover:bg-red-700 p-3 rounded-full transition shadow-sm group relative"
+                    title="Email us"
+                    onclick="window.location.href='mailto:cornebotha6991@gmail.com'"
+                  >
+                    <i data-feather="mail" class="text-white"></i>
+                    <span
+                      class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      >Email Us</span
+                    >
+                  </a>
+                  <a
+                    href="https://maps.google.com"
+                    target="_blank"
+                    class="bg-yellow-600 hover:bg-yellow-700 p-3 rounded-full transition shadow-sm group relative"
+                    title="Find us on Google Maps"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="feather feather-map-pin text-white"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"
+                      ></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span
+                      class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      >Google Maps</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-6">CC Auto Repairs</h3>
+            <p class="text-gray-400">
+              Your trusted partner for professional auto repair services since
+              2025.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a
+                  href="#"
+                  onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                  class="hover:text-primary transition"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-primary transition"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:text-primary transition"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-primary transition"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-6">Services</h4>
+            <ul class="space-y-3 text-gray-400">
+              <li>
+                <a href="#" class="hover:text-primary transition"
+                  >Major Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition"
+                  >Minor Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition"
+                  >Suspension Repair</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-primary transition"
+                  >Brake & Clutch Service</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 mb-4 md:mb-0">
+            © 2025 CC Auto Repairs. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-primary transition"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-gray-400 hover:text-primary transition"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+    <script>
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", (e) => {
+        e.stopPropagation();
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+
+      // Prevent menu from closing when clicking inside
+      mobileMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          if (this.getAttribute("href") === "#") {
+            e.preventDefault();
+            document.querySelector("body").scrollIntoView({
+              behavior: "smooth",
+            });
+          } else {
+            e.preventDefault();
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
+              behavior: "smooth",
+            });
+          }
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
